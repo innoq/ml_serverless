@@ -146,6 +146,6 @@ const upload_file = async (req, res) => {
   }
 };
 
-exports.gcloud_tensorflow_node8_upload = (req, res) => {
-  upload_file(req, res);
+exports.gcloud_tensorflow_node8_upload = async (req, res) => {
+  await upload_file(req, res);
 }
