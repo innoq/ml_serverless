@@ -108,23 +108,6 @@ const upload_file = async (req, res) => {
       fileWrites.push(promise);
     });
 
-    busboy.on('file', (fieldname, file, filename) => {
-      console.log(`Processing file ${filename}`);
-      const filepath = path.join(tmpdir, filename);
-      uploads[fieldname] = filepath;
-      filenames[fieldname] = filename;
-      const writeStream = fs.createWriteStream(filepath);
-      file.pipe(writeStream);
-      const promise = new Promise((resolve, reject) => {
-        file.on('end', () => {
-          writeStream.end();
-        });
-        writeStream.on('finish', resolve);
-        writeStream.on('error', reject);
-      });
-      fileWrites.push(promise);
-    });
-
     busboy.on('finish', () => {
       Promise.all(fileWrites)
       .then(() => Promise.all(
