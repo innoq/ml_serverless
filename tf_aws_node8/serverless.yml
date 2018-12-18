@@ -1,0 +1,18 @@
+
+
+service: which-flower 
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  which_flower:
+    handler: handler.which_flower
+    events:
+      - http:
+          path: /which_flower
+          method: post
+          cors: true
+plugins:
+  - serverless-offline

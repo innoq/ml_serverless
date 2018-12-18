@@ -1,0 +1,28 @@
+service: tensorflow-on-aws
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: python2.7
+  memorySize: 1536
+  timeout: 300
+
+functions:
+  which-flower:
+    handler: index.which_flower
+    events:
+      - http:
+          path: /which-flower
+          method: get
+          cors: true
+
+package:
+  exclude:
+    - node_modules/**
+    - .idea/**
+    - image.jpg
+    - retrained_graph.pb
+
+plugins:
+  - serverless-offline-python

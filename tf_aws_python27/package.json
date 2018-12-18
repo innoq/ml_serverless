@@ -1,0 +1,11 @@
+{
+  "name": "tensorflow",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "serverless-offline-python": "^3.21.3"
+  },
+  "devDependencies": {
+    "serverless-python-requirements": "^4.2.5"
+  }
+}
