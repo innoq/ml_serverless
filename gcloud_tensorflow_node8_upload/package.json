@@ -13,6 +13,7 @@
     "@tensorflow/tfjs-node": "^0.1.21",
     "busboy": "^0.2.14",
     "jpeg-js": "^0.3.4",
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "shortid": "^2.2.14"
   }
 }

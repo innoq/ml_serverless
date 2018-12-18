@@ -7,6 +7,7 @@ const tf = require('@tensorflow/tfjs');
 require('@tensorflow/tfjs-converter');
 require('@tensorflow/tfjs-node');
 global.fetch = require('node-fetch');
+const shortid = require('shortid');
 
 const MODEL_URL = 'https://storage.googleapis.com/which_flower/tensorflowjs_model.pb';
 const WEIGHTS_URL = 'https://storage.googleapis.com/which_flower/weights_manifest.json';
@@ -62,12 +63,50 @@ const upload_file = async (req, res) => {
     console.log("model already available")
   }
   if (req.method === 'POST') {
-    console.log("got a POST");
+    console.log("got a POST request");
     const busboy = new Busboy({ headers: req.headers });
     const tmpdir = os.tmpdir();
     const uploads = {};
     const filenames = {};
     let fileWrites = [];
+
+    busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
+      const https = require("https");
+      console.log(`fetching ${val}`);
+      const filepath = path.join(tmpdir, shortid.generate());
+      uploads[fieldname] = filepath;
+      filenames[fieldname] = val;
+      const file = fs.createWriteStream(filepath);
+      const promise = new Promise(function(resolve, reject) {
+        var req = https.get(val, response => {
+            var stream = response.pipe(file);
+            stream.on("finish", resolve);
+            stream.on('error', reject);
+        });
+        req.on('error', function(err) {
+          reject(err);
+        });
+        req.end();
+      });
+      fileWrites.push(promise);
+    });
+
+    busboy.on('file', (fieldname, file, filename) => {
+      console.log(`Processing file ${filename}`);
+      const filepath = path.join(tmpdir, shortid.generate());
+      uploads[fieldname] = filepath;
+      filenames[fieldname] = filename;
+      const writeStream = fs.createWriteStream(filepath);
+      file.pipe(writeStream);
+      const promise = new Promise((resolve, reject) => {
+        file.on('end', () => {
+          writeStream.end();
+        });
+        writeStream.on('finish', resolve);
+        writeStream.on('error', reject);
+      });
+      fileWrites.push(promise);
+    });
 
     busboy.on('file', (fieldname, file, filename) => {
       console.log(`Processing file ${filename}`);
