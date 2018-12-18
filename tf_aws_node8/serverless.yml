@@ -1,6 +1,6 @@
 
 
-service: which-flower 
+service: whichflower 
 
 provider:
   name: aws
@@ -8,10 +8,10 @@ provider:
 
 functions:
   which_flower:
-    handler: handler.which_flower
+    handler: handler.whichflower
     events:
       - http:
-          path: /which_flower
+          path: /whichflower
           method: post
           cors: true
 plugins:

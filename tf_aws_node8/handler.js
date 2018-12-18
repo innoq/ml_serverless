@@ -120,7 +120,7 @@ const parseForm = (body, headers) => new Promise((resolve, reject) => {
 });
 
 
-exports.which_flower = async (event, context) => {
+exports.whichflower = async (event, context) => {
   parseForm(event.body, event.headers).then(file => calc(file))
 
   return {
