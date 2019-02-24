@@ -60,3 +60,9 @@ typings/
 # next.js build output
 .next
 .python-version
+
+venv
+data
+*.ipynb
+.ipynb_checkpoints
+.DS_Store
