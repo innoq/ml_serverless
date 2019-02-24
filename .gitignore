@@ -63,6 +63,5 @@ typings/
 
 venv
 data
-*.ipynb
 .ipynb_checkpoints
 .DS_Store
