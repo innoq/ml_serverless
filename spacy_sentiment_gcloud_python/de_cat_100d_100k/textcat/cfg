@@ -1,0 +1,6 @@
+{
+  "labels":[
+    "OFFENSE"
+  ],
+  "pretrained_vectors":"spacy_pretrained_vectors"
+}
