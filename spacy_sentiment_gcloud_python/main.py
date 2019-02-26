@@ -1,5 +1,6 @@
 import spacy
 import json
+import logging
 
 nlp = spacy.load('de_cat_100d_100k')
 
@@ -20,4 +21,5 @@ def encode_result(text, result, encoding='json'):
 def processText(mytext):
     global nlp
     doc = nlp(mytext)
+    logging.info(f'RESULT: {doc.cats["OFFENSE"]:.4f} {mytext}')
     return doc.cats['OFFENSE']
