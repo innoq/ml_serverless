@@ -3,9 +3,10 @@
   "description": "",
   "version": "0.1.0",
   "dependencies": {
-    "serverless-offline-python": "^3.21.3"
   },
   "devDependencies": {
+    "serverless-offline-python": "^3.22.0",
+    "serverless-offline": "^4.7.0",
     "serverless-python-requirements": "^4.2.5"
   }
 }

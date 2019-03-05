@@ -65,3 +65,7 @@ venv
 data
 .ipynb_checkpoints
 .DS_Store
+=======
+*.idea/
+
+*.serverless/

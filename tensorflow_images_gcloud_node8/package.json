@@ -17,3 +17,5 @@
     "shortid": "^2.2.14"
   }
 }
+
+curl -X POST  http://localhost:3000/whichflower  -H 'content-type: multipart/form-data'  -H 'cache-control: no-cache'   -F img=@/Users/mperlin/infrastructure/ml_serverless/images/rose1.jpg

@@ -1,3 +1,15 @@
+/*
+curl -X POST  http://localhost:3000/whichflower  -H 'content-type: multipart/form-data'  -H 'cache-control: no-cache'   -F img=@/Users/mperlin/infrastructure/ml_serverless/images/rose1.jpg
+
+74.3
+find node_modules/ -type d | grep test | xargs rm -rf
+find node_modules | grep -i 'README.md' | xargs rm -f
+find node_modules | grep -i 'CHANGELOG.md' | xargs rm -f
+find node_modules | grep -i 'HISTORY.md' | xargs rm -f
+find node_modules | grep -i 'LICENSE.md' | xargs rm -f
+
+*/
+
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
