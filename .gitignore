@@ -61,9 +61,12 @@ typings/
 .next
 .python-version
 
+
 venv
 *-venv
 data
+__pycache__
+*.pyc
 .ipynb_checkpoints
 .DS_Store
 .vscode
