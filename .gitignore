@@ -62,9 +62,11 @@ typings/
 .python-version
 
 venv
+*-venv
 data
 .ipynb_checkpoints
 .DS_Store
+.vscode
 =======
 *.idea/
 
