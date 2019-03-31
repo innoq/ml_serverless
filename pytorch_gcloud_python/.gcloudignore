@@ -1,0 +1,11 @@
+.ipynb_checkpoints
+.DS_Store
+data
+venv
+*.ipynb
+*.md
+.vscode
+torchtext-venv
+requirements_train.txt
+train.py
+*.ipynb
