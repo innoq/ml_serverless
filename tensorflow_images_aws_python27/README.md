@@ -1,0 +1,1 @@
+For getting this run on AWS please follow [this](https://github.com/Accenture/serverless-ephemeral/blob/master/docs/build-tensorflow-package.md) approach. You can also try a more [recent one](https://github.com/antonpaquin/Tensorflow-Lambda-Layer) with lambda layers. Deploying to AWS in usual way will fail due to limit to 250 MBs considering deployment artifact unpackaged.
