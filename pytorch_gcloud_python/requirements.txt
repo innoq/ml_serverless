@@ -2,7 +2,7 @@ dill==0.2.9
 jedi==0.13.3
 Jinja2==2.10
 jsonschema==2.6.0
-mistune==0.8.4
+mistune==2.0.3
 numpy==1.16.2
 pickleshare==0.7.5
 python-dateutil==2.8.0
